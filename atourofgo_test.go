@@ -1,7 +1,9 @@
 package main
 
 import (
-	."github.com/smartystreets/goconvey/convey"
+	"fmt"
+	. "github.com/smartystreets/goconvey/convey"
+
 	"testing"
 )
 
@@ -72,10 +74,32 @@ func ExampleConstants() {
 }
 
 func TestNeedInt(t *testing.T) {
+	var intValue int
+	const x = (1 << 100) >> 99
+	Convey(fmt.Sprintf("Given x is a integer with a value of %d", x), t, func() {
+		Convey("When needInt(int) is call with x", func() {
+			intValue = needInt(x)
+			Convey(fmt.Sprintf("the functions interger return value(%d) should equal 21", intValue), func() {
+				So(intValue, ShouldEqual, 21)
+				So(intValue, ShouldHaveSameTypeAs, 21)
+			})
+		})
+	})
 }
 
 func TestNeedFloat64(t *testing.T) {
-	needFloat64(small)
+	var f64Value float64
+	const x = (1 << 100) >> 99
+	var expected = 0.2
+	Convey(fmt.Sprintf("Given x is an float64 with a value of %d", x), t, func() {
+		Convey("When needfloat64(float64) is call with x", func() {
+			f64Value = needFloat64(x)
+			Convey("the functions returns a float64 value equal to 0.2", func() {
+				So(f64Value, ShouldEqual, 0.2)
+				So(f64Value, ShouldHaveSameTypeAs, expected)
+			})
+		})
+	})
 }
 
 func ExampleNumericConstants() {
@@ -96,27 +120,26 @@ func ExampleForLoop2() {
 	// Output: 1024
 }
 
-func ExampleForAsWhile(){
+func ExampleForAsWhile() {
 	forAsWhile()
 	// Output: 1024
 }
 
 func TestSqrt(t *testing.T) {
 	Convey("Given a 64 bit floating point number", t, func() {
-		
+
 		Convey("with a value of -4, sqrt(float64) returns 2i", func() {
 			var input float64 = -4
 			output := ifSqrt(input)
 			So(output, ShouldEqual, "2i")
-			
+
 		})
 
 		Convey("with a value of 2, sqrt(float64) returns 1.4142135623730951", func() {
 			var input float64 = 2
 			output := ifSqrt(input)
 			So(output, ShouldEqual, "1.4142135623730951")
-			
-		})
-	}) 
-}
 
+		})
+	})
+}

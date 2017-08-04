@@ -98,7 +98,7 @@ func constants() {
 
 func needInt(x int) int { return x*10 + 1 }
 
-func needFloat64(x float64) float64 {return x * 0.1}
+func needFloat64(x float64) float64 { return x * 0.1 }
 
 func numericConstants() {
 	fmt.Println(needInt(small))
@@ -107,7 +107,7 @@ func numericConstants() {
 }
 
 func forLoop() {
-	sum :=  0
+	sum := 0
 	for i := 0; i < 10; i++ {
 		sum += i
 	}
@@ -116,7 +116,7 @@ func forLoop() {
 
 func forLoop2() {
 	sum := 1
-	for ;sum < 1000; {
+	for sum < 1000 {
 		sum += sum
 	}
 	fmt.Println(sum)
@@ -132,7 +132,7 @@ func forAsWhile() {
 
 func ifSqrt(x float64) string {
 	if x < 0 {
-		return ifSqrt(-x) +"i"
+		return ifSqrt(-x) + "i"
 	}
 	return fmt.Sprint(math.Sqrt(x))
 }
