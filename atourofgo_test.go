@@ -121,7 +121,7 @@ func ExampleForAsWhile() {
 	// Output: 1024
 }
 
-func TestSqrt(t *testing.T) {
+func TestIfSqrt(t *testing.T) {
 	Convey("Given a 64 bit floating point number", t, func() {
 
 		Convey("with a value of -4, sqrt(float64) returns 2i", func() {
@@ -138,4 +138,26 @@ func TestSqrt(t *testing.T) {
 
 		})
 	})
+}
+
+func ExampleIfSqrtPrint() {
+	ifSqrtPrint()
+	// Output: 1.4142135623730951 2i
+}
+
+func TestPow( t *testing.T) {
+	Convey("Given two floating point numbers", t, func() {
+		Convey("if the power of the two numbers is greater than 10 return 10",func() {
+			So( pow(3,3,10), ShouldEqual, 10)
+		})
+
+		Convey("if the power of the two numvers is less than 10 return the product",func() {
+			So( pow(3,2,10), ShouldEqual, 9)
+		})
+	})
+}
+
+func ExamplePowPrint() {
+	powPrint()
+	// Output: 9 10
 }

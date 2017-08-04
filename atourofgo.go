@@ -137,6 +137,20 @@ func ifSqrt(x float64) string {
 	return fmt.Sprint(math.Sqrt(x))
 }
 
+func ifSqrtPrint() {
+	fmt.Println(ifSqrt(2), ifSqrt(-4))
+}
+
+func pow(x, n, lim float64) float64 {
+	if v := math.Pow(x, n); v < lim {
+		return v
+	}
+	return lim
+}
+
+func powPrint() {
+	fmt.Println(pow(3,2,10), pow(3,3,10))
+}
 func main() {
 	hello()
 	named(17)
@@ -152,5 +166,6 @@ func main() {
 	forLoop()
 	forLoop2()
 	forAsWhile()
-	fmt.Println(ifSqrt(2), ifSqrt(-4))
+	ifSqrtPrint()
+	powPrint()
 }
