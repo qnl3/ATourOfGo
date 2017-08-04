@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	."github.com/smartystreets/goconvey/convey"
 	"testing"
 )
@@ -72,10 +73,29 @@ func ExampleConstants() {
 }
 
 func TestNeedInt(t *testing.T) {
+	Convey("Untyped constants take on the type required by its context",t , func() {
+		text := fmt.Sprintf("in a integer context small constanat renturs a int with the value of %d", 21)
+		Convey(text, func(){
+			x := needInt(small)
+			So(x, ShouldEqual, 21)
+		})
+	})
 }
 
 func TestNeedFloat64(t *testing.T) {
-	needFloat64(small)
+	Convey("Untyped constants take on the type required by its context", t, func() {
+		text0 := fmt.Sprintf("in a float context small constant returns a Float64 with the value of %d", 0.2)
+		Convey(text0, func(){
+			x := needFloat64(small)
+			So(x, ShouldEqual, 0.2)
+		})
+
+		text1 := fmt.Sprintf("in a float context big constant returns a Float64 with the value of %d", 1.2676506002282295e+29)
+		Convey(text1, func(){
+			x := needFloat64(big)
+			So(x, ShouldEqual, 1.2676506002282295e+29)
+		})
+	})
 }
 
 func ExampleNumericConstants() {
