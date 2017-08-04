@@ -1,7 +1,7 @@
 package main
 
 import (
-	. "github.com/smartystreets/goconvoy/convoy"
+	."github.com/smartystreets/goconvey/convey"
 	"testing"
 )
 
@@ -71,8 +71,11 @@ func ExampleConstants() {
 	// Go rules? true
 }
 
-func ExampleNeedInt(t *testing.T) {
-	needInt(2)
+func TestNeedInt(t *testing.T) {
+}
+
+func TestNeedFloat64(t *testing.T) {
+	needFloat64(small)
 }
 
 func ExampleNumericConstants() {
@@ -82,3 +85,38 @@ func ExampleNumericConstants() {
 	// 0.2
 	// 1.2676506002282295e+29
 }
+
+func ExampleForLoop() {
+	forLoop()
+	// Output: 45
+}
+
+func ExampleForLoop2() {
+	forLoop2()
+	// Output: 1024
+}
+
+func ExampleForAsWhile(){
+	forAsWhile()
+	// Output: 1024
+}
+
+func TestSqrt(t *testing.T) {
+	Convey("Given a 64 bit floating point number", t, func() {
+		
+		Convey("with a value of -4, sqrt(float64) returns 2i", func() {
+			var input float64 = -4
+			output := ifSqrt(input)
+			So(output, ShouldEqual, "2i")
+			
+		})
+
+		Convey("with a value of 2, sqrt(float64) returns 1.4142135623730951", func() {
+			var input float64 = 2
+			output := ifSqrt(input)
+			So(output, ShouldEqual, "1.4142135623730951")
+			
+		})
+	}) 
+}
+
