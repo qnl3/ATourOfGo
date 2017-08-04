@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	."github.com/smartystreets/goconvey/convey"
+	. "github.com/smartystreets/goconvey/convey"
 	"testing"
 )
 
@@ -73,9 +73,9 @@ func ExampleConstants() {
 }
 
 func TestNeedInt(t *testing.T) {
-	Convey("Untyped constants take on the type required by its context",t , func() {
+	Convey("Untyped constants take on the type required by its context", t, func() {
 		text := fmt.Sprintf("in a integer context small constanat renturs a int with the value of %d", 21)
-		Convey(text, func(){
+		Convey(text, func() {
 			x := needInt(small)
 			So(x, ShouldEqual, 21)
 		})
@@ -85,13 +85,13 @@ func TestNeedInt(t *testing.T) {
 func TestNeedFloat64(t *testing.T) {
 	Convey("Untyped constants take on the type required by its context", t, func() {
 		text0 := fmt.Sprintf("in a float context small constant returns a Float64 with the value of %d", 0.2)
-		Convey(text0, func(){
+		Convey(text0, func() {
 			x := needFloat64(small)
 			So(x, ShouldEqual, 0.2)
 		})
 
 		text1 := fmt.Sprintf("in a float context big constant returns a Float64 with the value of %d", 1.2676506002282295e+29)
-		Convey(text1, func(){
+		Convey(text1, func() {
 			x := needFloat64(big)
 			So(x, ShouldEqual, 1.2676506002282295e+29)
 		})
@@ -126,14 +126,14 @@ func TestIfSqrt(t *testing.T) {
 
 		Convey("with a value of -4, sqrt(float64) returns 2i", func() {
 			var input float64 = -4
-			output := ifSqrt(input)
+			output := sqrt(input)
 			So(output, ShouldEqual, "2i")
 
 		})
 
 		Convey("with a value of 2, sqrt(float64) returns 1.4142135623730951", func() {
 			var input float64 = 2
-			output := ifSqrt(input)
+			output := sqrt(input)
 			So(output, ShouldEqual, "1.4142135623730951")
 
 		})
@@ -145,14 +145,14 @@ func ExampleIfSqrtPrint() {
 	// Output: 1.4142135623730951 2i
 }
 
-func TestPow( t *testing.T) {
+func TestPow(t *testing.T) {
 	Convey("Given two floating point numbers", t, func() {
-		Convey("if the power of the two numbers is greater than 10 return 10",func() {
-			So( pow(3,3,10), ShouldEqual, 10)
+		Convey("if the power of the two numbers is greater than 10 return 10", func() {
+			So(pow(3, 3, 10), ShouldEqual, 10)
 		})
 
-		Convey("if the power of the two numvers is less than 10 return the product",func() {
-			So( pow(3,2,10), ShouldEqual, 9)
+		Convey("if the power of the two numvers is less than 10 return the product", func() {
+			So(pow(3, 2, 10), ShouldEqual, 9)
 		})
 	})
 }
