@@ -49,6 +49,14 @@ func ExampleTypeConversion() {
 	// Output: 3 4 5
 }
 
+func ExampleNumericConstants() {
+	numericConstants()
+	// Output:
+	// 21
+	// 0.2
+	// 1.2676506002282295e+29
+}
+
 func ExampleTypeInferenceInt() {
 	typeInferenceInt()
 	// Output: v is of type int
@@ -98,17 +106,14 @@ func TestNeedFloat64(t *testing.T) {
 	})
 }
 
-func ExampleNumericConstants() {
-	numericConstants()
-	// Output:
-	// 21
-	// 0.2
-	// 1.2676506002282295e+29
-}
-
 func ExampleForLoop() {
 	forLoop()
 	// Output: 45
+}
+
+func ExampleForAsWhile() {
+	forAsWhile()
+	// Output: 1024
 }
 
 func ExampleForLoop2() {
@@ -116,9 +121,9 @@ func ExampleForLoop2() {
 	// Output: 1024
 }
 
-func ExampleForAsWhile() {
-	forAsWhile()
-	// Output: 1024
+func ExampleIfSqrtPrint() {
+	ifSqrtPrint()
+	// Output: 1.4142135623730951 2i
 }
 
 func TestSqrt(t *testing.T) {
@@ -140,9 +145,9 @@ func TestSqrt(t *testing.T) {
 	})
 }
 
-func ExampleIfSqrtPrint() {
-	ifSqrtPrint()
-	// Output: 1.4142135623730951 2i
+func ExamplePowPrint() {
+	powPrint()
+	// Output: 9 10
 }
 
 func TestPow(t *testing.T) {
@@ -157,7 +162,9 @@ func TestPow(t *testing.T) {
 	})
 }
 
-func ExamplePowPrint() {
-	powPrint()
-	// Output: 9 10
+func ExampleIfElsePrint() {
+	ifElsePrint()
+	// Output:
+	// 27 >= 20
+	// 9 20
 }
