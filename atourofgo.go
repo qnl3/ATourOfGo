@@ -130,15 +130,15 @@ func forAsWhile() {
 	fmt.Println(sum)
 }
 
-func ifSqrt(x float64) string {
+func sqrt(x float64) string {
 	if x < 0 {
-		return ifSqrt(-x) + "i"
+		return sqrt(-x) + "i"
 	}
 	return fmt.Sprint(math.Sqrt(x))
 }
 
 func ifSqrtPrint() {
-	fmt.Println(ifSqrt(2), ifSqrt(-4))
+	fmt.Println(sqrt(2), sqrt(-4))
 }
 
 func pow(x, n, lim float64) float64 {
