@@ -121,7 +121,7 @@ func ExampleForAsWhile() {
 	// Output: 1024
 }
 
-func TestIfSqrt(t *testing.T) {
+func TestSqrt(t *testing.T) {
 	Convey("Given a 64 bit floating point number", t, func() {
 
 		Convey("with a value of -4, sqrt(float64) returns 2i", func() {
