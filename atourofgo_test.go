@@ -168,3 +168,24 @@ func ExampleIfElsePrint() {
 	// 27 >= 20
 	// 9 20
 }
+
+func ExamplePowElse() {
+	powElse(3, 3, 20)
+	// Output:
+	// 27 >= 20
+}
+func TestPowElse(t *testing.T) {
+	Convey("Given two floating point numbers", t, func() {
+		var lim float64 = 10
+		message := fmt.Sprintf("if the power of the two numbers is less than than %-.2f return result", lim)
+		Convey(message, func() {
+			So(powElse(3, 2, lim), ShouldEqual, 9)
+		})
+
+		lim = 20
+		message = fmt.Sprintf("if the power of the two numbers is greater than %.2f return %.2f", lim)
+		Convey("if the power of the two numbers is greater than 20 return 20", func() {
+			So(powElse(3, 3, lim), ShouldEqual, lim)
+		})
+	})
+}
